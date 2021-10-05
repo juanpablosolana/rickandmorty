@@ -50,3 +50,13 @@
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.page{
+  display: inline-block;
+  width: 40px;
+  cursor: pointer;
+}
+.imgGrid{
+  cursor:pointer;
+  border: 1px solid #000;
+}
