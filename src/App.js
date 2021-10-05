@@ -6,7 +6,7 @@ function App() {
   const [character, setCharacter] = useState([])
   const [characterTarget, setCharacterTarget]= useState("")
   const [page, setPage]=useState(1)
-  document.title = `${characterTarget.name} | React Rick & Morty API :`;
+  document.title = `${characterTarget.name} | React Rick & Morty API`;
   useEffect(() => {
     if(page<1){setPage(1)}
     const getcharacter = async () => {
