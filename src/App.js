@@ -12,9 +12,9 @@ function App() {
     const getcharacter = async () => {
       await axios
         .get(`https://rickandmortyapi.com/api/character?page=${page}`)
-        .then((res) => {
-          setCharacter(res.data.results);
-          setCharacterTarget(res.data.results[0]);
+        .then(({data}) => {
+          setCharacter(data.results);
+          setCharacterTarget(data.results[0]);
         })
         .catch((err) => {
           console.log(err);
