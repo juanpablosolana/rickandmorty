@@ -9,23 +9,23 @@ function App() {
   const [personajeSeleccionado, setPersonajeSeleccionado]= useState("")
   useEffect(() => {
     const getPersonajes = async () => {
-      await axios.get(`https://rickandmortyapi.com/api/character`)
-        .then(res => {
-          setPersonajes(res.data.results)
+      await axios
+        .get(`https://rickandmortyapi.com/api/character?page=1`)
+        .then((res) => {
+          setPersonajes(res.data.results);
           setPersonajeSeleccionado(res.data.results[0]);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     }
     getPersonajes()
   }, [])
 
-
   return (
     <div className="App">
-      <img src={personajeSeleccionado.image} alt={personajeSeleccionado.name} />
-      <p>{personajeSeleccionado.name}</p>
+      <img className="imgMain" src={personajeSeleccionado.image} alt={personajeSeleccionado.name} />
+      <h3 className="nameMain">{personajeSeleccionado.name}</h3>
       <div
         style={{
           display: "flex",
@@ -76,8 +76,7 @@ function App() {
                   alt={personaje.name}
                   onClick={() => setPersonajeSeleccionado(personaje)}
                 />
-                <div>
-                </div>
+                <div></div>
               </div>
             );
           })}
