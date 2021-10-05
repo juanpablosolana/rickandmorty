@@ -27,6 +27,7 @@
   }
 }
 .imgMain{
+  border: groove 1em red;
   border-radius: 50%;
   align-items: center;
   justify-content: space-around;
@@ -45,6 +46,8 @@
 }
 
 .super {
+  background-image: url("./logo.png");
+  background-position: left 2px top;
   align-items: center;
   justify-content: space-around;
   width: 100%;
@@ -52,11 +55,11 @@
 }
 
 .page{
-  display: inline-block;
-  width: 40px;
+  display: inline-flex;
+  width: 70px;
   cursor: pointer;
 }
 .imgGrid{
   cursor:pointer;
-  border: 1px solid #000;
+  border: .2rem solid #000;
 }
