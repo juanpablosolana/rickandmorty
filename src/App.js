@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import Carousel, { slidesToShowPlugin } from "@brainhubeu/react-carousel";
+import '@brainhubeu/react-carousel/lib/style.css';
 
 function App() {
   const [personajes, setPersonajes] = useState([])
+  const [personajeSeleccionado, setPersonajeSeleccionado]= useState("")
   useEffect(() => {
     const getPersonajes = async () => {
       await axios.get(`https://rickandmortyapi.com/api/character`)
         .then(res => {
           setPersonajes(res.data.results)
+          setPersonajeSeleccionado(res.data.results[0]);
         })
         .catch(err => {
           console.log(err);
@@ -16,17 +20,69 @@ function App() {
     }
     getPersonajes()
   }, [])
+
+
   return (
     <div className="App">
-
-      {personajes.map(personaje => {
-        return (
-          <div className="personaje" key={personaje.id}>
-            <img src={personaje.image} alt={personaje.name} />
-            <p>{personaje.name}</p>
-          </div>
-        )
-      })}
+      <img src={personajeSeleccionado.image} alt={personajeSeleccionado.name} />
+      <p>{personajeSeleccionado.name}</p>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexFlow: "row",
+          alignContent: "center",
+          textAlign: "center",
+        }}
+      >
+        <Carousel
+          plugins={[
+            "arrows",
+            {
+              resolve: slidesToShowPlugin,
+              options: {
+                numberOfSlides: 3,
+              },
+            },
+          ]}
+          breakpoints={{
+            640: {
+              plugins: [
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 1,
+                  },
+                },
+              ],
+            },
+            900: {
+              plugins: [
+                {
+                  resolve: slidesToShowPlugin,
+                  options: {
+                    numberOfSlides: 2,
+                  },
+                },
+              ],
+            },
+          }}
+        >
+          {personajes.map((personaje) => {
+            return (
+              <div className="personaje" key={personaje.id}>
+                <img
+                  src={personaje.image}
+                  alt={personaje.name}
+                  onClick={() => setPersonajeSeleccionado(personaje)}
+                />
+                <div>
+                </div>
+              </div>
+            );
+          })}
+        </Carousel>
+      </div>
     </div>
   );
 }
