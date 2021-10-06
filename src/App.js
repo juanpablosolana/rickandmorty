@@ -3,29 +3,41 @@ import './App.css';
 import axios from 'axios';
 import { ClipLoader, RingLoader } from "react-spinners";
 
-const filterData = ["All", "Alive", "Dead", "Unknown"];
+const statusData = ["Chose status","All", "Alive", "Dead", "Unknown"];
+const speciesData = [
+  "Chose species",
+  "All",
+  "Alien",
+  "Cronenberg",
+  "Human",
+  "Mythological Creature",
+  "Poopybutthole",
+  "Unknown",
+];
 const API = "https://rickandmortyapi.com/api/character?page=";
 
 function App() {
   const [character, setCharacter] = useState([])
   const [characterTarget, setCharacterTarget]= useState("")
   const [page, setPage]=useState(1)
-  const [selectedOption, setSelectedOption] = useState("");
+  const [statusOption, setStatusOption] = useState("");
+  const [speciesOption, setSpeciesOption] = useState("")
   document.title = `${characterTarget.name} | React Rick & Morty API`;
   useEffect(() => {
     const getcharacter = async () => {
       await axios
-        .get(`${API}${page}&status=${selectedOption}`)
+        .get(`${API}${page}&status=${statusOption}&species=${speciesOption}`)
         .then(({ data }) => {
           setCharacter(data.results);
           setCharacterTarget(data.results[0]);
         })
         .catch((err) => {
+          setPage(1)
           console.log(err);
         });
     };
     getcharacter();
-  }, [page,selectedOption])
+  }, [page,statusOption,speciesOption])
 
   return (
     <div className="App">
@@ -43,7 +55,8 @@ function App() {
         )}
 
         <h3 className="nameMain">
-          Status: {characterTarget.status} - - Specie: {characterTarget.species}
+          Status: {characterTarget.status} - - Species:{" "}
+          {characterTarget.species}
         </h3>
       </div>
       <div className="grid">
@@ -67,18 +80,35 @@ function App() {
       </div>
       <div className="page">
         <label className="back" onClick={() => setPage(page - 1)}>
-          {page>1?<label>&lt;</label>:null}
+          {page > 1 ? <label>&lt;</label> : null}
         </label>
         <select
-          value={selectedOption}
+          value={statusOption}
           name="select"
           onChange={(e) =>
             e.target.value.toLocaleLowerCase() === "all"
-              ? setSelectedOption("")
-              : setSelectedOption(e.target.value.toLocaleLowerCase())
+              ? setStatusOption("")
+              : setStatusOption(e.target.value.toLocaleLowerCase())
           }
         >
-          {filterData.map((options) => {
+          {statusData.map((options) => {
+            return (
+              <option value={`${options}`} key={options}>
+                {options}
+              </option>
+            );
+          })}
+        </select>
+        <select
+          value={statusOption}
+          name="select"
+          onChange={(e) =>
+            e.target.value.toLocaleLowerCase() === "all"
+              ? setSpeciesOption("")
+              : setSpeciesOption(e.target.value.toLocaleLowerCase())
+          }
+        >
+          {speciesData.map((options) => {
             return (
               <option value={`${options}`} key={options}>
                 {options}
