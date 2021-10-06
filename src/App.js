@@ -37,8 +37,11 @@ function App() {
           className="imgMain"
           src={characterTarget.image}
           alt={characterTarget.name}
+          width="300px"
         />
-        <h3 className="nameMain">Status: {characterTarget.status}  - -  Specie: {characterTarget.species}</h3>
+        <h3 className="nameMain">
+          Status: {characterTarget.status} - - Specie: {characterTarget.species}
+        </h3>
       </div>
       <div className="grid">
         {character.map((character) => {
@@ -48,7 +51,7 @@ function App() {
                 src={character.image}
                 alt={character.name}
                 onClick={() => setCharacterTarget(character)}
-                width="100px"
+                width="120px"
                 className="imgGrid"
               />
             </div>

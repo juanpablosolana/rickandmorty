@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  height:100vh;
 }
 
 
@@ -42,7 +43,7 @@
 .grid {
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .super {
@@ -56,10 +57,19 @@
 
 .page{
   display: inline-flex;
-  width: 70px;
+  width: 100px;
   cursor: pointer;
 }
+
 .imgGrid{
   cursor:pointer;
   border: .2rem solid #000;
+  transition:all .5s ease-in-out;
 }
+
+/* .imgGrid:hover{
+  filter: saturate(180%)
+} */
+
+.character:hover .imgGrid {-webkit-transform:scale(1.5);transform:scale(1.5);}
+.character {overflow:hidden;}
