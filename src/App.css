@@ -58,7 +58,7 @@
 .page{
   display: inline-flex;
   width: 100px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .imgGrid{
@@ -75,6 +75,11 @@
 .character:hover .imgGrid {-webkit-transform:scale(1.5);transform:scale(1.5);}
 .character {overflow:hidden;}
 
+.next, .back{
+  cursor: pointer;
+  font-size: 2rem;
+}
+
 
 @media (max-width: 750px) {
   .grid {
@@ -82,5 +87,9 @@
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
 }
-
+  .character:hover .imgGrid
+  {
+    -webkit-transform: none;
+    transform: none;
+  }
 }
