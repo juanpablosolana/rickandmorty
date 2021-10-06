@@ -67,9 +67,20 @@
   transition:all .5s ease-in-out;
 }
 
-/* .imgGrid:hover{
-  filter: saturate(180%)
-} */
+.imgGrid:hover{
+  /* filter: saturate(180%)*/
+  border: none;
+}
 
 .character:hover .imgGrid {-webkit-transform:scale(1.5);transform:scale(1.5);}
 .character {overflow:hidden;}
+
+
+@media (max-width: 750px) {
+  .grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+}
