@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+const API = "https://rickandmortyapi.com/api/character?page=";
 
 function App() {
   const [character, setCharacter] = useState([])
@@ -8,19 +9,24 @@ function App() {
   const [page, setPage]=useState(1)
   document.title = `${characterTarget.name} | React Rick & Morty API`;
   useEffect(() => {
-    if(page<1){setPage(1)}
+    /* ** API: only this endpoints   ** */
+    if (page < 1) {
+      setPage(34);
+    } else if (page > 34) {
+      setPage(1);
+    }
     const getcharacter = async () => {
       await axios
-        .get(`https://rickandmortyapi.com/api/character?page=${page}`)
-        .then(({data}) => {
+        .get(`${API}${page}`)
+        .then(({ data }) => {
           setCharacter(data.results);
           setCharacterTarget(data.results[0]);
         })
         .catch((err) => {
           console.log(err);
         });
-    }
-    getcharacter()
+    };
+    getcharacter();
   }, [page])
 
   return (
@@ -35,13 +41,13 @@ function App() {
         <h3 className="nameMain">Status: {characterTarget.status}  - -  Specie: {characterTarget.species}</h3>
       </div>
       <div className="grid">
-        {character.map((personaje) => {
+        {character.map((character) => {
           return (
-            <div className="personaje" key={personaje.id}>
+            <div className="character" key={character.id}>
               <img
-                src={personaje.image}
-                alt={personaje.name}
-                onClick={() => setCharacterTarget(personaje)}
+                src={character.image}
+                alt={character.name}
+                onClick={() => setCharacterTarget(character)}
                 width="100px"
                 className="imgGrid"
               />
