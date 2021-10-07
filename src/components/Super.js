@@ -3,7 +3,7 @@ import { ClipLoader } from "react-spinners";
 const Super = ({ characterTarget }) => {
   return (
     <div className="super">
-      <h3 className="nameMain">Name: {characterTarget.name}</h3>
+      <h3 className="nameMain">{characterTarget.name}</h3>
       {characterTarget ? (
         <div className="superMain">
           <div className="superImg">
