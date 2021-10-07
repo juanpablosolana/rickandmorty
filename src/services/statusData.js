@@ -1,1 +1,1 @@
-export default ["Chose status", "All", "Alive", "Dead", "Unknown"]
+export default ["Choose status", "All", "Alive", "Dead", "Unknown"]

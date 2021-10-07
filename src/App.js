@@ -4,8 +4,6 @@ import axios from 'axios';
 import { ClipLoader, RingLoader } from "react-spinners";
 import statusData from './services/statusData';
 import speciesData from './services/speciesData';
-
-
 const API = "https://rickandmortyapi.com/api/character?page=";
 
 function App() {
@@ -74,16 +72,17 @@ function App() {
         <label className="back" onClick={() => setPage(page - 1)}>
           {page > 1 ? <label>&lt;</label> : null}
         </label>
+
         <select
           value={statusOption}
           name="select"
           onChange={(e) =>
             e.target.value.toLocaleLowerCase() === "all"
-              ? setStatusOption("")
-              : setStatusOption(e.target.value.toLocaleLowerCase())
+              ? setSpeciesOption("")
+              : setSpeciesOption(e.target.value.toLocaleLowerCase())
           }
         >
-          {statusData.map((options) => {
+          {speciesData.map((options) => {
             return (
               <option value={`${options}`} key={options}>
                 {options}
@@ -96,11 +95,11 @@ function App() {
           name="select"
           onChange={(e) =>
             e.target.value.toLocaleLowerCase() === "all"
-              ? setSpeciesOption("")
-              : setSpeciesOption(e.target.value.toLocaleLowerCase())
+              ? setStatusOption("")
+              : setStatusOption(e.target.value.toLocaleLowerCase())
           }
         >
-          {speciesData.map((options) => {
+          {statusData.map((options) => {
             return (
               <option value={`${options}`} key={options}>
                 {options}
