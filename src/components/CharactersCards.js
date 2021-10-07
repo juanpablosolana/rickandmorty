@@ -1,4 +1,4 @@
-const CharactersCards = ({character, setCharacterTarget,key}) => {
+const CharactersCards = ({character, setCharacterTarget}) => {
   const changeCharacter = (character) => {
     setCharacterTarget(character);
   };
@@ -7,7 +7,6 @@ const CharactersCards = ({character, setCharacterTarget,key}) => {
       <img
         src={character.image}
         alt={character.name}
-        key={key}
         onClick={() => changeCharacter(character)}
         width="120px"
         className="imgGrid"
