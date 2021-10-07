@@ -2,18 +2,10 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import { ClipLoader, RingLoader } from "react-spinners";
+import statusData from './services/statusData';
+import speciesData from './services/speciesData';
 
-const statusData = ["Chose status","All", "Alive", "Dead", "Unknown"];
-const speciesData = [
-  "Chose species",
-  "All",
-  "Alien",
-  "Cronenberg",
-  "Human",
-  "Mythological Creature",
-  "Poopybutthole",
-  "Unknown",
-];
+
 const API = "https://rickandmortyapi.com/api/character?page=";
 
 function App() {

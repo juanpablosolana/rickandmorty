@@ -1,0 +1,1 @@
+export default ["Chose status", "All", "Alive", "Dead", "Unknown"]
