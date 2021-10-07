@@ -1,6 +1,6 @@
 import axios from "axios";
 function getPersonajes(page) {
-   axios
+   return axios
     .get(`https://rickandmortyapi.com/api/character?page${page}`)
     .then((res) => {
       // console.log(res.data.results)

@@ -34,12 +34,23 @@ function App() {
       <div className="super">
         <h3 className="nameMain">Name: {characterTarget.name}</h3>
         {characterTarget ? (
-          <img
-            className="imgMain"
-            src={characterTarget.image}
-            alt={characterTarget.name}
-            width="300px"
-          />
+          <div className="superMain">
+            <div className="superImg">
+              <img
+                className="imgMain"
+                src={characterTarget.image}
+                alt={characterTarget.name}
+                width="300px"
+              />
+            </div>
+            <div className="superData">
+              <p>- Extra info -</p>
+              <p>Gender: {characterTarget.gender}</p>
+              <p>Location: {characterTarget.location.name}</p>
+              <p>Origin: {characterTarget.origin.name}</p>
+              <p>Type: {characterTarget.type?characterTarget.type:"Unknow"}</p>
+            </div>
+          </div>
         ) : (
           <ClipLoader color={"fff"} loading={"loading"} size={150} />
         )}
