@@ -1,8 +1,7 @@
 .App {
   text-align: center;
-  height:100vh;
+  height: 100vh;
 }
-
 
 .App-header {
   background-color: #282c34;
@@ -27,7 +26,8 @@
     transform: rotate(360deg);
   }
 }
-.imgMain{
+
+.imgMain {
   border: groove 1em red;
   border-radius: 50%;
   align-items: center;
@@ -35,8 +35,8 @@
   width: 300px;
 }
 
-.nameMain{
-  background-color:#685128 ;
+.nameMain {
+  background-color: #685128;
   border-radius: 10%;
   color: white;
 }
@@ -45,6 +45,8 @@
   display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  background-image: url("./portal.png");
+  background-size: 250px;
 }
 
 .super {
@@ -55,65 +57,74 @@
   width: 100%;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.superMain  {
-display: inline-flex;
-justify-content: center;
-align-items: center;
+
+.superMain {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
-.superImg{
+
+.superImg {
   margin-inline-end: .5rem;
 }
-.superData{
-padding: .5rem;
-background-color: #000;
-color: #fff;
-border-radius: 15px;
-font-weight: bold;
-font-size: 1vw;
--webkit-text-stroke: .3px #61dafb;
-border: groove 1em red;
+
+.superData {
+  padding: .5rem;
+  background-color: #000;
+  color: #fff;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 1vw;
+  -webkit-text-stroke: .3px #61dafb;
+  border: groove 1em red;
 }
 
-.page{
+.page {
   display: inline-flex;
-  /* cursor: pointer; */
+  /* background-image: url("./page.png");
+  background-size: 10px;
+  width: 100%; */
 }
 
-.imgGrid{
-  cursor:pointer;
+.imgGrid {
+  cursor: pointer;
   border: .2rem solid #000;
-  transition:all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
-.imgGrid:hover{
+.imgGrid:hover {
   /* filter: saturate(180%)*/
   border: none;
 }
 
-.character:hover .imgGrid {-webkit-transform:scale(1.5);transform:scale(1.5);}
-.character {overflow:hidden;}
+.character:hover .imgGrid {
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
 
-.next, .back{
+.character {
+  overflow: hidden;
+}
+
+.next, .back {
   cursor: pointer;
   font-size: 2rem;
 }
 
-
 @media (max-width: 750px) {
   .grid {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-  .character:hover .imgGrid
-  {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .character:hover .imgGrid {
     -webkit-transform: none;
     transform: none;
   }
-  .imgMain{
-  width: 150px;
-}
-.superData{
-  font-size: 2vw;
-}
+  .imgMain {
+    width: 150px;
+  }
+  .superData {
+    font-size: 2vw;
+  }
 }
