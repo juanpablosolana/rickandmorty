@@ -28,7 +28,7 @@ const Super = ({ characterTarget }) => {
       )}
 
       <h3 className="nameMain">
-        Status: {characterTarget.status} - - Species: {characterTarget.species}
+        Species: {characterTarget.species} - - Status: {characterTarget.status}
       </h3>
     </div>
   );

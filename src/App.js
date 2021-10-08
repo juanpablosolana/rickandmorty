@@ -12,7 +12,7 @@ function App() {
   const [page, setPage] = useState(1);
   const [statusOption, setStatusOption] = useState("");
   const [speciesOption, setSpeciesOption] = useState("");
-  document.title = `${characterTarget.name} | React Rick & Morty API`;
+  document.title = `${characterTarget.name ||"React Rick & Morty API"} | React Rick & Morty API`;
 
   useEffect(() => {
     const getcharacter = async () => {

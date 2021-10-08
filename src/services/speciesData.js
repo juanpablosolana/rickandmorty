@@ -1,5 +1,4 @@
 export default [
-  "Choose species",
   "All",
   "Alien",
   "Animal",
