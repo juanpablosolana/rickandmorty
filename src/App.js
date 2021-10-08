@@ -31,7 +31,7 @@ function App() {
   }, [page, statusOption, speciesOption]);
 
   return (
-    <div className="App">
+    <div className="App" id="top">
       <Super characterTarget={characterTarget} />
       <Grid
         character={character}
