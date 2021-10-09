@@ -15,6 +15,7 @@ function App() {
   document.title = `${characterTarget.name ||"React Rick & Morty API"} | React Rick & Morty API`;
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getcharacter = async () => {
       await axios
         .get(`${API}${page}&status=${statusOption}&species=${speciesOption}`)
