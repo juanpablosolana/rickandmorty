@@ -9,7 +9,7 @@
       height={350}
     />
   </div>
-  Te recomiendo [ver el proyecto](https://rickandmorty.pablosolana.dev/) antes de continuar.
+  Te recomiendo ver el proyecto (https://rickandmorty.pablosolana.dev/) antes de continuar.
 </div>
 
 **Recuerda importar axios**
@@ -113,6 +113,3 @@ axios
     console.log(err)
   })
 ```
-
-Te comparto [el código completo](https://github.com/juanpablosolana/rickandmorty).
-Saludos.
