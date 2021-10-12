@@ -12,6 +12,7 @@ const Footer = ({
   setCharacterTarget
 }) => {
   return (
+    <>
     <div className="page">
       <label className="back" onClick={() => setPage(page - 1)}>
         {page > 1 ? <label>&lt;</label> : null}
@@ -36,6 +37,8 @@ const Footer = ({
         &gt;
       </label>
     </div>
+  </>
+
   );
 };
 

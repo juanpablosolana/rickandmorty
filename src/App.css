@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  height: 100vh;
 }
 
 .App-header {
@@ -81,9 +80,6 @@
 
 .page {
   display: inline-flex;
-  /* background-image: url("./page.png");
-  background-size: 10px;
-  width: 100%; */
 }
 
 .imgGrid {

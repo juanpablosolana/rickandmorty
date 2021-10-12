@@ -5,6 +5,7 @@ import Super from "./components/Super";
 import Grid from "./components/Grid";
 import Footer from "./components/Footer";
 import API from './services/api'
+import { Helmet } from "react-helmet";
 
 function App() {
   const [character, setCharacter] = useState([]);
@@ -12,10 +13,11 @@ function App() {
   const [page, setPage] = useState(1);
   const [statusOption, setStatusOption] = useState("");
   const [speciesOption, setSpeciesOption] = useState("");
-  document.title = `${characterTarget.name ||"React Rick & Morty API"} | React Rick & Morty API`;
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
     const getcharacter = async () => {
       await axios
         .get(`${API}${page}&status=${statusOption}&species=${speciesOption}`)
@@ -32,6 +34,13 @@ function App() {
   }, [page, statusOption, speciesOption]);
 
   return (
+    <>
+      <Helmet>
+        <title>{`${characterTarget.name || "React Rick & Morty API"} | React Rick & Morty API`}</title>
+        <content>
+          `${characterTarget.name || "React Rick & Morty API"}`
+        </content>
+      </Helmet>
     <div className="App" id="top">
       <Super characterTarget={characterTarget} />
       <Grid
@@ -48,6 +57,7 @@ function App() {
         setCharacterTarget={setCharacterTarget}
       />
     </div>
+    </>
   );
 }
 
