@@ -32,9 +32,9 @@ function App() {
           setCharacter(data.results);
           setCharacterTarget(data.results[0]);
         })
-        .catch((err) => {
-          setPage(1);
-          console.log(err);
+        .catch(({response}) => {
+          response.request.responseURL.includes('poopybutthole') ? setStatusOption("") && setPage(1) : setPage(1);
+
         });
     };
     getcharacter();
