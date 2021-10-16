@@ -6,6 +6,13 @@ import Grid from "./components/Grid";
 import Footer from "./components/Footer";
 import API from './services/api'
 import { Helmet } from "react-helmet";
+import TagManager from 'react-gtm-module'
+
+const tagManagerArgs = {
+  gtmId: 'G-MLYWMQXC19'
+}
+
+TagManager.initialize(tagManagerArgs)
 
 function App() {
   const [character, setCharacter] = useState([]);
@@ -34,14 +41,13 @@ function App() {
   }, [page, statusOption, speciesOption]);
 
   return (
-    <>
+
+    <div className="App" id="top">
       <Helmet>
         <title>{`${characterTarget.name || "React Rick & Morty API"} | React Rick & Morty API`}</title>
-        <content>
-          `${characterTarget.name || "React Rick & Morty API"}`
-        </content>
+        <meta name="description" content={` ${characterTarget.name || "React Rick & Morty API | Pablo Solana"}`}/>
       </Helmet>
-    <div className="App" id="top">
+
       <Super characterTarget={characterTarget} />
       <Grid
         character={character}
@@ -57,7 +63,7 @@ function App() {
         setCharacterTarget={setCharacterTarget}
       />
     </div>
-    </>
+
   );
 }
 
