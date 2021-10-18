@@ -6,13 +6,9 @@ import Grid from "./components/Grid";
 import Footer from "./components/Footer";
 import API from './services/api'
 import { Helmet } from "react-helmet";
-import TagManager from 'react-gtm-module'
-
-const tagManagerArgs = {
-  gtmId: 'G-MLYWMQXC19'
-}
-
-TagManager.initialize(tagManagerArgs)
+import ReactGA from 'react-ga';
+ReactGA.initialize('G-MLYWMQXC19');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 function App() {
   const [character, setCharacter] = useState([]);
